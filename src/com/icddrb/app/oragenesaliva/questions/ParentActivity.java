@@ -7533,79 +7533,15 @@ public class ParentActivity extends BaseActivity implements FormListener {
 
 		//code by imtiaz khan
 		if(CommonStaticClass.questionMap
-				.get(CommonStaticClass.currentSLNo).getQvar().equalsIgnoreCase("q18h1"))
+				.get(CommonStaticClass.currentSLNo).getQvar().equalsIgnoreCase("q14"))
 		{
-			qqq.setText( Html.fromHtml("Sample ID: "+ CommonStaticClass.dataId+"EMH01"));
+			qqq.setText( Html.fromHtml("Sample ID: "+ CommonStaticClass.dataId+"EMW01"));
 		}
+		
 		else if(CommonStaticClass.questionMap
-					.get(CommonStaticClass.currentSLNo).getQvar().equalsIgnoreCase("q18h2"))
+				.get(CommonStaticClass.currentSLNo).getQvar().equalsIgnoreCase("q15"))
 		{
-			qqq.setText( Html.fromHtml("Sample ID: "+ CommonStaticClass.dataId+"EMH02"));
-		}
-		else if( CommonStaticClass.questionMap
-					.get(CommonStaticClass.currentSLNo).getQvar().equalsIgnoreCase("q18b1")
-				)
-		{
-			qqq.setText( Html.fromHtml("Sample ID: "+ CommonStaticClass.dataId+"EMB01"));
-		}
-		else if( CommonStaticClass.questionMap
-				.get(CommonStaticClass.currentSLNo).getQvar().equalsIgnoreCase("q18b2")
-			)
-		{
-			qqq.setText( Html.fromHtml("Sample ID: "+ CommonStaticClass.dataId+"EMB02"));
-		}
-		else if( CommonStaticClass.questionMap
-				.get(CommonStaticClass.currentSLNo).getQvar().equalsIgnoreCase("q18b3")
-			)
-		{
-			qqq.setText( Html.fromHtml("Sample ID: "+ CommonStaticClass.dataId+"EMB03"));
-		}
-		else if( CommonStaticClass.questionMap
-				.get(CommonStaticClass.currentSLNo).getQvar().equalsIgnoreCase("q18b4")
-			)
-		{
-			qqq.setText( Html.fromHtml("Sample ID: "+ CommonStaticClass.dataId+"EMB04"));
-		}
-		else if( CommonStaticClass.questionMap
-				.get(CommonStaticClass.currentSLNo).getQvar().equalsIgnoreCase("q18c1")
-			)
-		{
-			qqq.setText( Html.fromHtml("Sample ID: "+ CommonStaticClass.dataId+"EMC01"));
-		}
-		else if(CommonStaticClass.questionMap
-				.get(CommonStaticClass.currentSLNo).getQvar().equalsIgnoreCase("q19h1"))
-		{
-			qqq.setText( Html.fromHtml("Random ID: "+ getRandomId(CommonStaticClass.dataId+"EMH01")));
-		}
-		else if(CommonStaticClass.questionMap
-				.get(CommonStaticClass.currentSLNo).getQvar().equalsIgnoreCase("q19h2"))
-		{
-			qqq.setText( Html.fromHtml("Random ID: "+ getRandomId(CommonStaticClass.dataId+"EMH02")));
-		}
-		else if(CommonStaticClass.questionMap
-				.get(CommonStaticClass.currentSLNo).getQvar().equalsIgnoreCase("q19b1"))
-		{
-			qqq.setText( Html.fromHtml("Random ID: "+ getRandomId(CommonStaticClass.dataId+"EMB01")));
-		}
-		else if(CommonStaticClass.questionMap
-				.get(CommonStaticClass.currentSLNo).getQvar().equalsIgnoreCase("q19b2"))
-		{
-			qqq.setText( Html.fromHtml("Random ID: "+ getRandomId(CommonStaticClass.dataId+"EMB02")));
-		}
-		else if(CommonStaticClass.questionMap
-				.get(CommonStaticClass.currentSLNo).getQvar().equalsIgnoreCase("q19b3"))
-		{
-			qqq.setText( Html.fromHtml("Random ID: "+ getRandomId(CommonStaticClass.dataId+"EMB03")));
-		}
-		else if(CommonStaticClass.questionMap
-				.get(CommonStaticClass.currentSLNo).getQvar().equalsIgnoreCase("q19b4"))
-		{
-			qqq.setText( Html.fromHtml("Random ID: "+ getRandomId(CommonStaticClass.dataId+"EMB04")));
-		}
-		else if(CommonStaticClass.questionMap
-				.get(CommonStaticClass.currentSLNo).getQvar().equalsIgnoreCase("q19c1"))
-		{
-			qqq.setText( Html.fromHtml("Random ID: "+ getRandomId(CommonStaticClass.dataId+"EMC01")));
+			qqq.setText( Html.fromHtml("Random ID: "+ getRandomId(CommonStaticClass.dataId+"EMW01")));
 		}
 		else if (CommonStaticClass.langBng) {
 			if (CommonStaticClass.questionMap
@@ -12997,38 +12933,17 @@ else {
 //
 //						}
 //					}
-					if(qName.equalsIgnoreCase("q224"))
+					if(qName.equalsIgnoreCase("q13") && getChoiceValue("q12") == 3)
 					{
-						if(getChoiceValue("qVisit") == 1)
-						{
-							CommonStaticClass.findOutNextSLNo(
-									qName,"qEnd1");
-							CommonStaticClass.nextQuestion(ParentActivity.this);
-						}
-						else if(getChoiceValue("qVisit") == 2)
-						{
-							CommonStaticClass.findOutNextSLNo(
-									qName,"qEnd2");
-							CommonStaticClass.nextQuestion(ParentActivity.this);
-						}
-						else if(getChoiceValue("qVisit") == 3)
-						{
-							CommonStaticClass.findOutNextSLNo(
-									qName,"qEnd3");
-							CommonStaticClass.nextQuestion(ParentActivity.this);
-						}
-						else
-						{
-							CommonStaticClass.findOutNextSLNo(
-									qName,
-									CommonStaticClass.questionMap.get(
-											CommonStaticClass.currentSLNo).getQnext1());
-							CommonStaticClass.nextQuestion(ParentActivity.this);
-							
-						}
-							
+						CommonStaticClass.findOutNextSLNo(qName, "END");
+						CommonStaticClass.nextQuestion(ParentActivity.this);
 					}
 					
+					else if(qName.equalsIgnoreCase("q15") && getChoiceValue("q12") == 1)
+					{
+						CommonStaticClass.findOutNextSLNo(qName, "END");
+						CommonStaticClass.nextQuestion(ParentActivity.this);
+					}
 					
 					else if (qtoGo != null && qtoGo != ""
 							&& !nextToGo.equalsIgnoreCase("END")) {
@@ -13527,7 +13442,12 @@ else {
 						.get(CommonStaticClass.currentSLNo).getQnext1()
 						.equalsIgnoreCase("END")) {
 					showUserFinishDialogFrmText();
-				} 
+				}
+				else if(qName.equalsIgnoreCase("q13Other") && getChoiceValue("q12") == 3)
+				{
+					CommonStaticClass.findOutNextSLNo(qName, "END");
+					CommonStaticClass.nextQuestion(ParentActivity.this);
+				}
 				
 					else {
 					// preserveState();
